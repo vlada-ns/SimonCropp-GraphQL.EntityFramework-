@@ -29,7 +29,8 @@ public class Startup
         //    userContext => (GraphQlEfSampleDbContext) userContext);
 
 
-        //services.AddDbContext<TestContext>(options => options.UseSqlServer(""));
+        services.AddDbContext<TestContext>(options => options.UseSqlServer("Data Source=VASIC;Initial Catalog=GraphQLEntityFrameworkSample;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
+
         var optionsBuilder = new DbContextOptionsBuilder<TestContext>();
         optionsBuilder.UseSqlServer("Data Source=VASIC;Initial Catalog=GraphQLEntityFrameworkSample;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         using (var context = new TestContext(optionsBuilder.Options))

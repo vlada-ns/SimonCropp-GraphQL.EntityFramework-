@@ -1,9 +1,10 @@
 using GraphQL.EntityFramework;
+using SampleWeb.DataContext;
 
 public class EmployeeSummaryGraph :
-    EfObjectGraphType<GraphQlEfSampleDbContext, EmployeeSummary>
+    EfObjectGraphType<TestContext, EmployeeSummary>
 {
-    public EmployeeSummaryGraph(IEfGraphQLService<GraphQlEfSampleDbContext> graphQlService) :
+    public EmployeeSummaryGraph(IEfGraphQLService<TestContext> graphQlService) :
         base(graphQlService)
     {
         Field(x => x.CompanyId);

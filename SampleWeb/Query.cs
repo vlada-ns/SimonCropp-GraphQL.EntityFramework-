@@ -2,13 +2,14 @@
 using System.Linq;
 using GraphQL.EntityFramework;
 using GraphQL.Types;
+using SampleWeb.DataContext;
 
 #region QueryUsedInController
 
 public class Query :
-    QueryGraphType<GraphQlEfSampleDbContext>
+    QueryGraphType<TestContext>
 {
-    public Query(IEfGraphQLService<GraphQlEfSampleDbContext> efGraphQlService) :
+    public Query(IEfGraphQLService<TestContext> efGraphQlService) :
         base(efGraphQlService)
     {
         AddQueryField(
@@ -58,7 +59,7 @@ public class Query :
             ),
             resolve: context =>
             {
-                var dbContext = (GraphQlEfSampleDbContext) context.UserContext;
+                var dbContext = (TestContext) context.UserContext;
                 IQueryable<Employee> query = dbContext.Employees;
 
                 if (context.HasArgument("where"))
