@@ -1,0 +1,9 @@
+﻿{
+  manyChildren: [
+    {
+      child1: {
+        id: Guid_1
+      }
+    }
+  ]
+}
